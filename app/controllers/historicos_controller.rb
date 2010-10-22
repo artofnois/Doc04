@@ -1,9 +1,10 @@
 class HistoricosController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   # GET /historicos
   # GET /historicos.xml
   def index
-    @historicos = Historico.all
-
+    @historicos = Historico.order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @historicos }
@@ -44,7 +45,7 @@ class HistoricosController < ApplicationController
 
     respond_to do |format|
       if @historico.save
-        format.html { redirect_to(@historico, :notice => 'Historico was successfully created.') }
+        format.html { redirect_to(@historico, :notice => 'Historico se ha creado.') }
         format.xml  { render :xml => @historico, :status => :created, :location => @historico }
       else
         format.html { render :action => "new" }
@@ -60,7 +61,7 @@ class HistoricosController < ApplicationController
 
     respond_to do |format|
       if @historico.update_attributes(params[:historico])
-        format.html { redirect_to(@historico, :notice => 'Historico was successfully updated.') }
+        format.html { redirect_to(@historico, :notice => 'Historico actualizado.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,4 +81,14 @@ class HistoricosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+private
+  def sort_column
+    Historico.column_names.include?(params[:sort]) ? params[:sort] : "contenido"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end

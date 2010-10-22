@@ -1,5 +1,7 @@
-<h1>New historico</h1>
+<h1>Nuevo historico</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', historicos_path %>
+<%= link_to 'Indice', historicos_path %>
+<%= link_to 'Importa', :controller=>"items", :action=>"importa", :busqueda=>@historico.contenido %>
+

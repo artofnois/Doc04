@@ -10,13 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101018190713) do
+ActiveRecord::Schema.define(:version => 20101022010650) do
 
   create_table "historicos", :force => true do |t|
     t.string   "ambito"
     t.string   "contenido"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "items", :force => true do |t|
+    t.string   "tipo"
+    t.string   "titulo"
+    t.string   "descripcion"
+    t.string   "path"
+    t.string   "fichero"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tamaño"
   end
 
 end

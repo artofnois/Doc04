@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @item.tipo %>
+</p>
+
+<p>
+  <b>Titulo:</b>
+  <%= @item.titulo %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @item.descripcion %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @item.path %>
+</p>
+
+<p>
+  <b>Fichero:</b>
+  <%= @item.fichero %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

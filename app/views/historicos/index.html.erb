@@ -1,25 +1,26 @@
-<h1>Listing historicos</h1>
+<h1>Indice de historicos</h1>
 
-<table>
-  <tr>
-    <th>Ambito</th>
-    <th>Contenido</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table class="general">
+<tr>
+  <th><%= sortable "ambito", "Ámbito" %></th>
+  <th><%= sortable "contenido", "Contenido" %></th>
+</tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
 
 <% @historicos.each do |historico| %>
   <tr>
     <td><%= historico.ambito %></td>
     <td><%= historico.contenido %></td>
-    <td><%= link_to 'Show', historico %></td>
-    <td><%= link_to 'Edit', edit_historico_path(historico) %></td>
-    <td><%= link_to 'Destroy', historico, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Ver', historico %></td>
+    <td><%= link_to 'Edita', edit_historico_path(historico) %></td>
+    <td><%= link_to 'Borra', historico, :confirm => 'Seguro?', :method => :delete %></td>
+    <td><%= link_to 'Busca', :controller=>"items", :action=>"importa", :busqueda=>historico.contenido %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Historico', new_historico_path %>
+<%= link_to 'Nuevo Historico', new_historico_path %>

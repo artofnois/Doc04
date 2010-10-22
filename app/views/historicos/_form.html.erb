@@ -1,8 +1,7 @@
 <%= form_for(@historico) do |f| %>
   <% if @historico.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@historico.errors.count, "error") %> prohibited this historico from being saved:</h2>
-
+      <h2><%= pluralize(@historico.errors.count, "error") %> No se permite grabar este hisórico:</h2>
       <ul>
       <% @historico.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
