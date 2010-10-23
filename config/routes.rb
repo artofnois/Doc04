@@ -1,4 +1,10 @@
 Doc04::Application.routes.draw do
+
+  match  "/historicos/busca", :to => "historicos#busca"
+
+  match  "/items/importa", :to => "items#importa"
+  match  "/items/borratodo", :to => "items#borratodo"
+  resources :items
   resources :historicos
 
   # The priority is based upon order of creation:
@@ -50,7 +56,7 @@ Doc04::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "items#index"
 
   # See how all your routes lay out with "rake routes"
 

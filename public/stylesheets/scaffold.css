@@ -20,9 +20,6 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
-#notice {
-  color: green;
-}
 
 .field_with_errors {
   padding: 2px;
@@ -56,6 +53,55 @@ div.field, div.actions {
 }
 
 
+table.general {
+	border-width: 0px;
+	border-spacing: 1px;
+	border-style: solid;
+	border-color: green;
+	border-collapse: separate;
+	background-color: rgb(250, 240, 230);
+}
+table.general th {
+	border-width: 1px;
+	padding: 2px;
+	border-style: ridge;
+	border-color: red;
+	background-color: rgb(250, 240, 230);
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+table.general td {
+	border-width: 1px;
+	padding: 2px;
+	border-style: ridge;
+	border-color: red;
+	background-color: rgb(255, 245, 238);
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+table.general tr {
+	border-width: 1px;
+	padding: 2px;
+	border-style: ridge;
+	border-color: red;
+	background-color: rgb(255, 245, 238);
+	-moz-border-radius: 0px 0px 0px 0px;
+}
+
+.odd tr {
+    background-color: #FFFFFF;
+}
+
+table.general.even {
+    background-color: #333333;
+}
+
+
+#flash {
+    padding: 0.5em;
+    font-weight: bold;
+}
+
 #flash_error {
     border: 2px solid #8B0000;
     padding:10px;
@@ -72,6 +118,18 @@ div.field, div.actions {
     font-weight:bold;
 }
 
+
+.notice {
+     background-color: #ccc;
+     color: #333;
+     border: 1px solid green;
+}
+.error {
+     background-color: #ff6666;
+     color: #333;
+     border: 1px solid red;
+}
+
 #notice{
     border: 1px solid green;
     padding:10px;
@@ -85,4 +143,20 @@ div.field, div.actions {
     background-color:#3CB371;
     color:#FFFF00;
     font-weight:bold;
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/up_arrow.gif);
+  background-color: #8B0000;
+  color: #f0f0f0
+}
+
+.pretty th .desc {
+  background-image: url(/images/down_arrow.gif);
 }

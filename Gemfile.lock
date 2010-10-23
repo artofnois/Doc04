@@ -34,7 +34,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     i18n (0.4.1)
-    mail (2.2.7.0)
+    mail (2.2.7)
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
@@ -64,6 +64,7 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -71,3 +72,4 @@ PLATFORMS
 DEPENDENCIES
   rails (= 3.0.0)
   sqlite3-ruby
+  will_paginate (~> 3.0.pre2)

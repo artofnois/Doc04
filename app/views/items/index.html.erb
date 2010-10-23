@@ -1,0 +1,71 @@
+
+
+<table id="lista_documentos" summary="Relación de Documentos">
+   <colgroup>
+    	<col class="oce-first" />
+    </colgroup>
+  <thead>
+    <tr>
+      <th>
+        Relación de Documentos
+      </th>
+    </tr>
+    <tr>
+      <th>
+        <%= link_to 'Crear Nueva', new_item_path %>
+        <%= link_to 'Indice Busqueadas', :controller=>"historicos", :action=>"index" %>
+      </th>
+      <tr></tr>
+      <th>
+        <div class="field">
+          <%= "Buscar: "%><br />
+          <%= form_for @texto_busqueda do  |f| %>
+            <%=  f.text_field "texto"  %>
+            <%= link_to 'GO', :controller=>"items", :action=>"importa", :busqueda=> "hola"  %>
+          <% end  %>
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th>
+      <%= will_paginate @items %>
+      </th>
+    </tr>
+  </thead>
+</table>
+<table id="lista_documentos" summary="Relación de Documentos">
+   <colgroup>
+    	<col class="oce-first" />
+    </colgroup>
+  <thead>
+    <tr >
+      <th scope="col" id="">Tipo</th>
+      <th scope="col" id="">Titulo</th>
+      <th scope="col" id="">Path</th>
+      <th scope="col" id="" align="right">Tamaño</th>
+    </tr>
+  </thead
+
+  <tfoot>
+    <tr>
+    <td></td>
+    </tr>
+  </tfoot>
+
+  <!-- Table body -->
+  <tbody>
+  <% @items.each do |item| %>
+    <tr class=<%= cycle( "odd", "even") %> >
+      <td><%= item.tipo %></td>
+      <td>
+        <%= link_to item.titulo, item %>
+        <br>
+          <%= item.descripcion %>
+        </br>
+      </td>
+      <td><%= item.path %></td>
+      <td align="right"><%= number_to_human_size(  item.tamano )  %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

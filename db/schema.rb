@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20101022010650) do
     t.string   "fichero"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "tamaño"
+    t.integer  "tamano"
   end
 
 end
