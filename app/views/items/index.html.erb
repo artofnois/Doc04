@@ -12,18 +12,14 @@
     </tr>
     <tr>
       <th>
-        <%= link_to 'Crear Nueva', new_item_path %>
-        <%= link_to 'Indice Busqueadas', :controller=>"historicos", :action=>"index" %>
-      </th>
-      <tr></tr>
-      <th>
-        <div class="field">
-          <%= "Buscar: "%><br />
-          <%= form_for @texto_busqueda do  |f| %>
-            <%=  f.text_field "texto"  %>
-            <%= link_to 'GO', :controller=>"items", :action=>"importa", :busqueda=> "hola"  %>
-          <% end  %>
-        </div>
+          <fieldset>
+            <% form_tag  :action=>:busqueda do %>
+            <label> Buscar:</label>
+            <%= text_field_tag :texto_busqueda, params[:texto_busqueda] %>
+
+              <%= submit_tag 'Ya!' %>
+            <% end %>
+            </fieldset>
       </th>
     </tr>
     <tr>
