@@ -2,7 +2,8 @@ Doc04::Application.routes.draw do
 
   match  "/historicos/busca", :to => "historicos#busca"
 
-  match  "/items/importa", :to => "items#importa"
+  match  "/items/busca", :to => "items#importa"
+    match "/items/busqueda" => "items#busqueda"
   match  "/items/borratodo", :to => "items#borratodo"
   resources :items
   resources :historicos
