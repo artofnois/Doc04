@@ -1,30 +1,40 @@
-<p id="notice"><%= notice %></p>
+<table id="lista_documentos">
+  <tr>
+    <td>
+    <b>Tipo:
+    <%= @item.tipo %>
+    </b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <b>Titulo:</b>
+    <%= @item.titulo %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <b>Descripcion:</b>
+    <%= @item.descripcion %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <b>Path:</b>
+    <%= @item.path %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <b>Fichero:</b>
+    <%= @item.fichero %>
+    </td>
+  </tr>
 
-<p>
-  <b>Tipo:</b>
-  <%= @item.tipo %>
-</p>
-
-<p>
-  <b>Titulo:</b>
-  <%= @item.titulo %>
-</p>
-
-<p>
-  <b>Descripcion:</b>
-  <%= @item.descripcion %>
-</p>
-
-<p>
-  <b>Path:</b>
-  <%= @item.path %>
-</p>
-
-<p>
-  <b>Fichero:</b>
-  <%= @item.fichero %>
-</p>
-
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+  <tr>
+    <td align="center">
+    <%= link_to 'Detalle', edit_item_path(@item) %> |
+    <%= link_to 'Volder', items_path %>
+    </td>
+  </tr>
+</table>

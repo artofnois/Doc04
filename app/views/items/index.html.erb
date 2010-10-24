@@ -1,29 +1,21 @@
-
-
 <table id="lista_documentos" summary="Relación de Documentos">
    <colgroup>
     	<col class="oce-first" />
     </colgroup>
   <thead>
-    <tr>
-      <th>
+    <tr class="titulo_documento">
+      <th >
         Relación de Documentos
       </th>
     </tr>
     <tr>
       <th>
-        <%= link_to 'Crear Nueva', new_item_path %>
-        <%= link_to 'Indice Busqueadas', :controller=>"historicos", :action=>"index" %>
-      </th>
-      <tr></tr>
-      <th>
-        <div class="field">
-          <%= "Buscar: "%><br />
-          <%= form_for @texto_busqueda do  |f| %>
-            <%=  f.text_field "texto"  %>
-            <%= link_to 'GO', :controller=>"items", :action=>"importa", :busqueda=> "hola"  %>
-          <% end  %>
-        </div>
+            <%= form_tag  :action=>:busqueda do %>
+            <label> Buscar:</label>
+            <%= text_field_tag :texto_busqueda, params[:texto_busqueda] %>
+
+              <%= submit_tag 'Ya!' %>
+            <% end %>
       </th>
     </tr>
     <tr>
@@ -38,11 +30,11 @@
     	<col class="oce-first" />
     </colgroup>
   <thead>
-    <tr >
-      <th scope="col" id="">Tipo</th>
-      <th scope="col" id="">Titulo</th>
-      <th scope="col" id="">Path</th>
-      <th scope="col" id="" align="right">Tamaño</th>
+    <tr class="oce-first">
+      <th>Tipo</th>
+      <th>Titulo</th>
+      <th>Path</th>
+      <th>Tamaño</th>
     </tr>
   </thead
 
@@ -56,15 +48,21 @@
   <tbody>
   <% @items.each do |item| %>
     <tr class=<%= cycle( "odd", "even") %> >
-      <td><%= item.tipo %></td>
+      <td id="tipo"><%= item.tipo %></td>
       <td>
-        <%= link_to item.titulo, item %>
-        <br>
+        <p id="titulo1">
+          <%= link_to item.titulo, item %>
+        </p>
+        <p id="titulo2">
           <%= item.descripcion %>
-        </br>
+        </p>
       </td>
-      <td><%= item.path %></td>
-      <td align="right"><%= number_to_human_size(  item.tamano )  %></td>
+      <td id="path">
+        <% item.path.split( "/" ).each do |f| %>
+          <li><%= f %></li>
+        <% end %>
+      </td>
+      <td id="tamano" ><%= number_to_human_size(  item.tamano )  %></td>
     </tr>
   <% end %>
   </tbody>

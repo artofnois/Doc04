@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
 # machines_controller.rb
   def index
     @items = Item.paginate :page => params[:page], :order => 'updated_at ASC', :per_page=>25
-    @texto_busqueda = "pepe"
+    params[ :texto_busqueda ] = ""
 
     respond_to do |format|
       format.html # index.html.erb
@@ -94,35 +94,40 @@ class ItemsController < ApplicationController
   end
   
   def importa
-path = PATH_RAIZ
-    busqueda = params[ :busqueda ]
-    Debug( busqueda )
 
-    flash[:notice] = "Param:busqueda [#{ params(:busqueda) }]"
+  end
+  
+  def busqueda
+    path = PATH_RAIZ
+    texto = params[ :texto_busqueda ]
+
+    flash[:notice] = "Param:busqueda [#{ texto }]"
 
 #    flash[:notice] = "Vaciando resultado antiguos ....]"
     vacia_encontrados
 
 #    flash[:notice] = "Buscando nuevos resultados ....]"
-
     resultado = 1
     Find.find( path ) do | x |
-      if File.file?( x ) and x[ busqueda ]
+      if(  File.basename( x )[0] == '.' )
+        next
+      end
+      if File.file?( x ) and x[ texto ]
         Item.create(
           :tipo => resultado,
           :titulo => File.basename( x ),
           :descripcion => x,
-          :path => File.dirname( x ).slice(PATH_RAIZ.size+1,999 ) ,
+          :path => File.dirname( x )[path.length+1, 999 ] ,
           :fichero => x,
           :tamano => File.size(x)
         )
         resultado += 1
-        debug( resultado )
-        break if resultado == 10
+
+        break if resultado > 100
       end
     end
 
-    flash[:notice] = "Terminada la búsqueda ....]"
+    flash[:notice] = "Terminada la búsqueda[#{texto}]. Econtrados #{resultado} documentos."
 
     redirect_to items_path
   end
