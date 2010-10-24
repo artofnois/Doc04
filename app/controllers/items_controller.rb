@@ -112,11 +112,11 @@ class ItemsController < ApplicationController
       if(  File.basename( x ).slice(0,1) == '.' )
         next
       end
-      if File.file?( x ) and x[ texto ]
+      if File.file?( x ) #and x[ texto ]
         Item.create(
           :tipo => resultado,
           :titulo => File.basename( x ),
-          :descripcion => x,
+          :descripcion => x[texto].to_s,
           :path => File.dirname( x ).slice(PATH_RAIZ.size+1,999 ) ,
           :fichero => x,
           :tamano => File.size(x)
