@@ -9,7 +9,7 @@ body
 	font-size: 11px;
 	background: #eee;
 	margin: 14px;
-	width: 80%;
+	width: 90%;
 	border-collapse: collapse;
 	text-align: left;
 }
@@ -41,3 +41,5 @@ body
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
 }
+
+
