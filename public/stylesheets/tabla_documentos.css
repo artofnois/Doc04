@@ -1,14 +1,14 @@
 body
 {
-	line-height: 1.6em;
+	line-height: 1.5em;
 }
 
 #lista_documentos
 {
 	font-family: "Verdana", "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 11px;
-	background: #eee;
-	margin: 14px;
+	background: #f7f7fd;
+	margin: 10px;
 	width: 90%;
 	border-collapse: collapse;
 	text-align: left;
@@ -38,8 +38,45 @@ body
 .oce-first
 {
 	background: #d0dafd;
-	border-right: 10px solid transparent;
-	border-left: 10px solid transparent;
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent;
 }
 
+#titulo_documento
+{
+    font-size: 10.6em;
+}
+
+#tipo
+{
+    width:20px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#titulo1
+{
+    font-size: 1.0em;
+}
+
+#titulo2
+{
+    font-size: 0.9em;
+}
+
+#path
+{
+    width: 18%;
+    font-size: 1.1em;
+}
+
+
+#tamano
+{
+ /*   width:120px; */
+    text-align: right;
+    font-size: 1.0em;
+    font-weight: bold;
+}
 

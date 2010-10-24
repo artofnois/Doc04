@@ -109,21 +109,21 @@ class ItemsController < ApplicationController
 #    flash[:notice] = "Buscando nuevos resultados ....]"
     resultado = 1
     Find.find( path ) do | x |
-      if(  File.basename( x ).slice(0,1) == '.' )
+      if(  File.basename( x )[0] == '.' )
         next
       end
-      if File.file?( x ) #and x[ texto ]
+      if File.file?( x ) and x[ texto ]
         Item.create(
           :tipo => resultado,
           :titulo => File.basename( x ),
-          :descripcion => x[texto].to_s,
-          :path => File.dirname( x ).slice(PATH_RAIZ.size+1,999 ) ,
+          :descripcion => x,
+          :path => File.dirname( x )[path.length+1, 999 ] ,
           :fichero => x,
           :tamano => File.size(x)
         )
         resultado += 1
 
-        break if resultado > 10000
+        break if resultado > 100
       end
     end
 
