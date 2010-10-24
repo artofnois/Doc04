@@ -98,8 +98,6 @@ class ItemsController < ApplicationController
   end
   
   def busqueda
-
-    
     path = PATH_RAIZ
     texto = params[ :texto_busqueda ]
 

@@ -1,5 +1,3 @@
-
-
 <table id="lista_documentos" summary="Relación de Documentos">
    <colgroup>
     	<col class="oce-first" />
@@ -12,14 +10,12 @@
     </tr>
     <tr>
       <th>
-          <fieldset>
             <% form_tag  :action=>:busqueda do %>
             <label> Buscar:</label>
             <%= text_field_tag :texto_busqueda, params[:texto_busqueda] %>
 
               <%= submit_tag 'Ya!' %>
             <% end %>
-            </fieldset>
       </th>
     </tr>
     <tr>
