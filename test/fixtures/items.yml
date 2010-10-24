@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  tipo: MyString
+  titulo: MyString
+  descripcion: MyString
+  path: MyString
+  fichero: MyString
+
+two:
+  tipo: MyString
+  titulo: MyString
+  descripcion: MyString
+  path: MyString
+  fichero: MyString
