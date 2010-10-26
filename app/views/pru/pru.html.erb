@@ -1,0 +1,47 @@
+
+
+<SCRIPT>
+
+
+
+
+
+
+isc.DataSource.create({
+    ID:"temas",
+    dataURL:"/data/ds/temas.xml",
+    recordXPath:"/List/carpeta",
+    fields:[
+        {name:"Descripcion", primaryKey:true, title:"Descripcion"}
+    ]
+});
+
+isc.ImgButton.create({
+    left: 400,
+    width:18,
+    height:18,
+    src:"[SKIN]/ImgButton/button.png"
+});
+
+
+isc.TreeGrid.create({
+    ID: "temas",
+    width: 500,
+    height: 400,
+    dataSource: "temas",
+    autoFetchData:true,
+    nodeIcon:"icons/16/person.png",
+    folderIcon:"icons/16/person.png",
+    showOpenIcons:false,
+    showDropIcons:false,
+    closedIconSuffix:"",
+    fields: [
+        {name: "Descripcion"}
+    ]
+});
+
+
+</SCRIPT>
+
+        <h1>Pru#pru</h1>
+<p>Find me in app/views/pru/pru.html.erb</p>

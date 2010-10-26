@@ -18,6 +18,7 @@ module ApplicationHelper
     "#{ActionController::Base.relative_url_root}#{path}"
   end
 
+<<<<<<< HEAD
   # Load smartclient javascript framework (via script tags)
   #
   # Options are:
@@ -39,6 +40,48 @@ module ApplicationHelper
     # Set isomorphic dir
     out = "<script>var isomorphicDir='#{static_url_for('/isomorphic')}/';</script>"
 
+=======
+ # All the modules in smartclient
+  #  (actually there's a few more -- but less useful)
+  ISC_MODULES = [
+    [:core,         'ISC_Core.js'],
+    [:foundation,   'ISC_Foundation.js'],
+    [:containers,   'ISC_Containers.js'],
+    [:grids,        'ISC_Grids.js'],
+    [:forms,        'ISC_Forms.js'],
+    [:data_binding, 'ISC_DataBinding.js']
+  ]
+
+  # Helper to generate paths to static urls
+  #
+  # Useful when you deploy under a path prefix
+  # (for example, --prefix with mongrel)
+  def static_url_for(path)
+   # "#{config.action_controller.re relative_url_root= '[path]'}}"
+  end
+
+  # Load smartclient javascript framework (via script tags)
+  #
+  # Options are:
+  #  :modules => array of js modules to load
+  #  :skin    => skin name, as per subfolder in /isomorphic/skins
+  #
+  # Skins include:
+  # BlackOps, Cupertino, Enterprise, fleet, SilverWave,
+  # SmartClient, standard, ToolSkin or TreeFrog
+  #
+  # Loadable modules include:
+  # :core, :foundation, :containers, :grids, :forms, :data_binding
+  #
+  # By default loads ALL modules, with Enterprise skin
+  def load_smart_client(opts={})
+    skin = opts[:skin] || 'Enterprise'
+    modules_to_load = opts[:modules] || ISC_MODULES.map(&:first)
+
+    # Set isomorphic dir
+    out = "<script>var isomorphicDir='#{static_url_for('/isomorphic')}/';</script>"
+
+>>>>>>> d34a23542690b28284466d234e680de9da6950fb
     # Load each module
     ISC_MODULES.each do |key, js_file|
       if modules_to_load.include?(key)
