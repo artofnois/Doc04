@@ -7,18 +7,9 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<<<<<<< HEAD
 <% flash.each do |key, msg| %>
   <%= content_tag :div, msg, :id => key %>
 <% end %>
-=======
-
-<% flash.each do |key, msg| %>
-  <%= content_tag :div, msg, :id => key %>
-<% end %>
-
->>>>>>> origin
 <%= yield %>
-
 </body>
 </html>

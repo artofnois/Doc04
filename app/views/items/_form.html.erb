@@ -1,3 +1,12 @@
+<%= isc.IButton.create({
+	title:"Hello",
+	click:"isc.say('Hello World')"
+})
+
+%>
+
+
+
 <%= form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
