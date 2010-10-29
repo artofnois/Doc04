@@ -1,11 +1,11 @@
 Doc04::Application.routes.draw do
 
-  get "pru/pru"
+  match "pru/pru", :to => "pru#pru"
 
   match  "/historicos/busca", :to => "historicos#busca"
 
   match  "/items/busca", :to => "items#importa"
-    match "/items/busqueda" => "items#busqueda"
+  match "/items/busqueda" => "items#busqueda"
   match  "/items/borratodo", :to => "items#borratodo"
   resources :items
   resources :historicos

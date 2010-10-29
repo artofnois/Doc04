@@ -15264,3 +15264,5 @@ public/isomorphic/system/schema/hibernateTranslator.xsl
 public/isomorphic/system/schema/indent.xsl
 public/isomorphic/system/schema/isomorphicXML.ds.xml
 public/isomorphic/system/schema/schemaTranslator.xsl
+.DS_Store
+nbproject/private/rake-d.txt

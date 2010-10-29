@@ -1,27 +1,19 @@
-
-
 <SCRIPT>
-
-
-
-
-
-
 isc.DataSource.create({
     ID:"temas",
     dataURL:"/data/ds/temas.xml",
     recordXPath:"/List/carpeta",
     fields:[
-        {name:"Descripcion", primaryKey:true, title:"Descripcion"}
+        {name:"Padre", title:"Padre", foreignKey:"temas.Descripcion", required:"true" },
+        {name:"Descripcion", title:"Descripcion", required:"true", rootValue:"", detail:"true", primaryKey:"false",  required:"true" }
     ]
 });
 
-isc.ImgButton.create({
-    left: 400,
-    width:18,
-    height:18,
-    src:"[SKIN]/ImgButton/button.png"
-});
+isc.IButton.create({
+      x:200, y:200,
+	title:"Hola",
+	click:"isc.say('Hello World')"
+})
 
 
 isc.TreeGrid.create({
@@ -36,12 +28,8 @@ isc.TreeGrid.create({
     showDropIcons:false,
     closedIconSuffix:"",
     fields: [
-        {name: "Descripcion"}
+      {name: "Descripcion",formatCellValue: "record.Desc2+':&nbsp;'+value" }
     ]
 });
 
-
 </SCRIPT>
-
-        <h1>Pru#pru</h1>
-<p>Find me in app/views/pru/pru.html.erb</p>

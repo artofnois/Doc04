@@ -1,25 +1,15 @@
 body
 {
-<<<<<<< HEAD
-	line-height: 1.6em;
-=======
 	line-height: 1.5em;
->>>>>>> origin
 }
 
 #lista_documentos
 {
 	font-family: "Verdana", "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 11px;
-<<<<<<< HEAD
-	background: #eee;
-	margin: 14px;
-	width: 80%;
-=======
 	background: #f7f7fd;
 	margin: 10px;
 	width: 90%;
->>>>>>> origin
 	border-collapse: collapse;
 	text-align: left;
 }
@@ -48,11 +38,6 @@ body
 .oce-first
 {
 	background: #d0dafd;
-<<<<<<< HEAD
-	border-right: 10px solid transparent;
-	border-left: 10px solid transparent;
-}
-=======
 	border-right: 7px solid transparent;
 	border-left: 7px solid transparent;
 }
@@ -94,5 +79,3 @@ body
     font-size: 1.0em;
     font-weight: bold;
 }
-
->>>>>>> origin
