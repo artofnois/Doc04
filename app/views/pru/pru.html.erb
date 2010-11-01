@@ -1,35 +1,83 @@
 <SCRIPT>
+
+
+/*****
 isc.DataSource.create({
-    ID:"temas",
-    dataURL:"/data/ds/temas.xml",
-    recordXPath:"/List/carpeta",
+    ID:"directorios_DS",
+    dbName: "Doc04",
+    serverType:"sql",
+    tableNAme:"directorios",
+    autoFetchData: true,
+    clientOnly: true
+
     fields:[
-        {name:"Padre", title:"Padre", foreignKey:"temas.Descripcion", required:"true" },
-        {name:"Descripcion", title:"Descripcion", required:"true", rootValue:"", detail:"true", primaryKey:"false",  required:"true" }
+        {name:"padre", title:"Padre", foreignKey:"directios.directorio", required:"true" },
+        {name:"directorio", title:"Descripcion", required:"true", rootValue:"", detail:"true", primaryKey:"true",  required:"true" }
     ]
+
 });
+  ******/
 
-isc.IButton.create({
-      x:200, y:200,
-	title:"Hola",
-	click:"isc.say('Hello World')"
-})
+/*********
 
-
-isc.TreeGrid.create({
-    ID: "temas",
+isc.ListGrid.create({
+    ID: "directorios_lg",
+    top:100, left:50,
     width: 500,
     height: 400,
-    dataSource: "temas",
+    dataSource: directorios_DS,
     autoFetchData:true,
     nodeIcon:"icons/16/person.png",
     folderIcon:"icons/16/person.png",
     showOpenIcons:false,
     showDropIcons:false,
     closedIconSuffix:"",
+    useAllDataSourceFields: true
+});
+
+isc.TreeGrid.create({
+    ID: "directorios_tg",
+    top:100, left:900,
+    width: 300,
+    height: 400,
+    dataSource: directorios_DS,
+    autoFetchData:true,
+    nodeIcon:"icons/16/person.png",
+    folderIcon:"icons/16/person.png",
+    showOpenIcons:false,
+    showDropIcons:false,
+    closedIconSuffix:"",
+    useAllDataSourceFields: true
+  /*****
     fields: [
-      {name: "Descripcion",formatCellValue: "record.Desc2+':&nbsp;'+value" }
+      {name: "directorio" }
     ]
 });
+*******/
+
+isc.DynamicForm.create({
+  ID: "contactsForm",
+  left: 30, top: 500,
+  width: 300,
+  dataSource: directorios_DS,
+  useAllDataSourceFields: true
+});
+
+contactsForm.fetchData();
+
+<SCRIPT>
+window.chunksPath = isc.Page.getIsomorphicDocsDir() + "inlineExamples/html/chunks/";
+
+globalLayout.addMember(
+  isc.HTMLFlow.create({
+      width:230,
+      styleName:"exampleTextBlock",
+      contents: chunksPath,
+      contentsURL: "http://localhost:3000/index"
+
+  })
+);
+</SCRIPT>
+
 
 </SCRIPT>

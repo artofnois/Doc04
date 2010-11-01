@@ -1,4 +1,5 @@
 Doc04::Application.routes.draw do
+  match "directorios/index", :to => "directorios#index"
 
   match "pru/pru", :to => "pru#pru"
 
@@ -7,8 +8,10 @@ Doc04::Application.routes.draw do
   match  "/items/busca", :to => "items#importa"
   match "/items/busqueda" => "items#busqueda"
   match  "/items/borratodo", :to => "items#borratodo"
+  resources :directorios
   resources :items
   resources :historicos
+  resource :pru
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,8 +62,8 @@ Doc04::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  #root :to => "items#index"
-  root :to => "pru#pru"
+  root :to => "items#index"
+  #root :to => "pru#pru"
 # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

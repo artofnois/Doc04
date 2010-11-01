@@ -1,15 +1,18 @@
 class PruController < ApplicationController
   def pru
-    dame_directorios
+ 
+ #    flash[:notice] = "Pru:pru "
 
-#    flash[:notice] = "Terminada la búsqueda[. Econtrados #{resultado} documentos."
-
+#   @dir = DirectoriosController.new
+#   @dir.crea_directorio
+    
     respond_to do |format|
       format.html # show.html.erb
     end
     #redirect_to "/pru/pru"
   end
 
+=begin
   def dame_directorios
     path = PATH_RAIZ
     @carpetas = Hash.new{}
@@ -32,6 +35,7 @@ class PruController < ApplicationController
 
 #    f = Tempfile.new('prefix', "#{Rails.root}/tmp")
 
+
     File.open( "/data/ds/temas.xml", File::CREAT|File::TRUNC|File::RDWR, 0644 ) do  | f |
       f.puts("<List>\n")
       @carpetas.sort
@@ -45,4 +49,6 @@ class PruController < ApplicationController
       end
     end
   end
+=end
+
  end
